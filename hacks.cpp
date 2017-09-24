@@ -1,53 +1,28 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 int main()
 {
-  int t,n,array1[100000000],array2[100000000],k=0,a=0;
-  cin>>t;
-  while(a<t)
-  {
+    long int i=0,n,eat,add,total,count=0;
     cin>>n;
-    for(int i=0;i<n;i++)
+    while(i<n)
     {
-        cin>>array1[i];
-    }
-    for(int i=0;i<n;i++)
-    {
-        cin>>array2[i];
-    }
-    for(int i=0;i<n-1;i++)
-    {
-        while(array2[i]!=array1[i])
+        cin>>eat;
+        cin>>add;
+        cin>>total;
+        if(eat<=add)
         {
-            if(array2[i]>array1[i])
-            {
-                array1[i]++;
-                array1[i+1]--;
-            }
-            else if(array2[i]<array1[i])
-            {
-                array1[i]--;
-                array1[i+1]++;
-            }
-            else
-                array1[i]=array2[i];
+            cout<<"-1"<<endl;
+            goto l1;
         }
-    }
-    int i=0;
-     for(i=0;i<n;i++)
-     {
-        if(array2[i]==array1[i]) 
+        while(total>=eat)
         {
-            k++;
+            total=total-eat;
+            total=total+add;
+            count++;
         }
-     }
-    if(k==n)
-    {
-    cout<<"YES"<<endl;
+        
+        cout<<count;
+        l1 :count=0;
+	i++;
     }
-    else
-    cout<<"NO"<<endl;
-    a++;
-  }
 }
-
